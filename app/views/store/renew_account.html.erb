@@ -1,0 +1,16 @@
+ <div class="category_items_header">
+  <span class="category_title">Customer access code renewal</span>
+</div>
+ <%= form_tag( { :action => :activate_renewal }, { :method => :post }) %>
+  <table style="padding: 10px; width:90%">
+
+  <tr>
+    <td>Enter your email</td>
+    <td>
+      <%= text_field_tag :email, params[:email], :size => '20', :class => 'login_field' %>
+      and your mobile number
+      <%= text_field_tag :mobile_number, params[:mobile_number], :size => '15', :class => 'login_field' %>
+      <%= submit_tag "Submit" %>
+    </td>
+  </tr>
+</table>

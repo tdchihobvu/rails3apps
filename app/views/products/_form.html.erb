@@ -1,0 +1,85 @@
+<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :code %><br />
+    <%= f.text_field :code %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br />
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :product_type_id %><br />
+    <%= f.number_field :product_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :product_category_id %><br />
+    <%= f.number_field :product_category_id %>
+  </div>
+  <div class="field">
+    <%= f.label :product_brand_id %><br />
+    <%= f.number_field :product_brand_id %>
+  </div>
+  <div class="field">
+    <%= f.label :sales %><br />
+    <%= f.number_field :sales %>
+  </div>
+  <div class="field">
+    <%= f.label :views %><br />
+    <%= f.number_field :views %>
+  </div>
+  <div class="field">
+    <%= f.label :on_promotion %><br />
+    <%= f.check_box :on_promotion %>
+  </div>
+  <div class="field">
+    <%= f.label :promotion_days %><br />
+    <%= f.number_field :promotion_days %>
+  </div>
+  <div class="field">
+    <%= f.label :unit_vat %><br />
+    <%= f.text_field :unit_vat %>
+  </div>
+  <div class="field">
+    <%= f.label :featured %><br />
+    <%= f.check_box :featured %>
+  </div>
+  <div class="field">
+    <%= f.label :release_year %><br />
+    <%= f.text_field :release_year %>
+  </div>
+  <div class="field">
+    <%= f.label :name_prefix %><br />
+    <%= f.text_field :name_prefix %>
+  </div>
+  <div class="field">
+    <%= f.label :top_10 %><br />
+    <%= f.check_box :top_10 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

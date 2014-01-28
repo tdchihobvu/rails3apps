@@ -1,0 +1,90 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Code:</b>
+  <%= @product.code %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @product.name %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @product.price %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @product.quantity %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @product.description %>
+</p>
+
+<p>
+  <b>Product type:</b>
+  <%= @product.product_type_id %>
+</p>
+
+<p>
+  <b>Product category:</b>
+  <%= @product.product_category_id %>
+</p>
+
+<p>
+  <b>Product brand:</b>
+  <%= @product.product_brand_id %>
+</p>
+
+<p>
+  <b>Sales:</b>
+  <%= @product.sales %>
+</p>
+
+<p>
+  <b>Views:</b>
+  <%= @product.views %>
+</p>
+
+<p>
+  <b>On promotion:</b>
+  <%= @product.on_promotion %>
+</p>
+
+<p>
+  <b>Promotion days:</b>
+  <%= @product.promotion_days %>
+</p>
+
+<p>
+  <b>Unit vat:</b>
+  <%= @product.unit_vat %>
+</p>
+
+<p>
+  <b>Featured:</b>
+  <%= @product.featured %>
+</p>
+
+<p>
+  <b>Release year:</b>
+  <%= @product.release_year %>
+</p>
+
+<p>
+  <b>Name prefix:</b>
+  <%= @product.name_prefix %>
+</p>
+
+<p>
+  <b>Top 10:</b>
+  <%= @product.top_10 %>
+</p>
+
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

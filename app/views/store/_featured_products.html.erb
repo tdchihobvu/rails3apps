@@ -1,0 +1,22 @@
+<div id="feature_store">
+   <div class="category_items_header">
+  <span class="category_title">Latest Movies</span>
+</div>
+     <% @featured_products.each_with_index do |r, i| %>
+        <% '< class="students-on-one-line">' if i%6 == 0 %>
+        <div id="ajax_result">
+
+            <div class="image"><img src="<%=h r.image_url %>" width="110px" height="120px" /></div>
+            <div class="movie_name"><%=h truncate(r.name.gsub(/<.*?>/,''),:length => 26)%></div>
+          <div class="cart_button">
+            <%= form_tag({:action => 'add_to_cart', :id => r}, :remote => true) do %>
+              <%= submit_tag "Buy Now" %>
+            <% end %>
+          </div>
+          <div class="release-year"><%= r.number_of_sales %> | <%= number_to_currency(r.price) %></div>
+
+
+        </div>
+        <%= '' if i%4 == 3 %>
+      <% end %>
+</div>

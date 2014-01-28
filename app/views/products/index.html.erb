@@ -1,0 +1,55 @@
+<h1>Listing products</h1>
+
+<table>
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Description</th>
+    <th>Product type</th>
+    <th>Product category</th>
+    <th>Product brand</th>
+    <th>Sales</th>
+    <th>Views</th>
+    <th>On promotion</th>
+    <th>Promotion days</th>
+    <th>Unit vat</th>
+    <th>Featured</th>
+    <th>Release year</th>
+    <th>Name prefix</th>
+    <th>Top 10</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @products.each do |product| %>
+  <tr>
+    <td><%= product.code %></td>
+    <td><%= product.name %></td>
+    <td><%= product.price %></td>
+    <td><%= product.quantity %></td>
+    <td><%= product.description %></td>
+    <td><%= product.product_type_id %></td>
+    <td><%= product.product_category_id %></td>
+    <td><%= product.product_brand_id %></td>
+    <td><%= product.sales %></td>
+    <td><%= product.views %></td>
+    <td><%= product.on_promotion %></td>
+    <td><%= product.promotion_days %></td>
+    <td><%= product.unit_vat %></td>
+    <td><%= product.featured %></td>
+    <td><%= product.release_year %></td>
+    <td><%= product.name_prefix %></td>
+    <td><%= product.top_10 %></td>
+    <td><%= link_to 'Show', product %></td>
+    <td><%= link_to 'Edit', edit_product_path(product) %></td>
+    <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Product', new_product_path %>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <%= "This email has been sent from Showtime website, notifying you of the order that has been made by #{@order.customer_name}" %><br/><br/>
+    <%=h "Customer Name : #{@order.customer_name}" %><br/>
+    <%=h "Customer Mobile : #{@order.mobile_no}" %><br/>
+    <%=h "Order Posted at : #{Time.now.strftime("%H:%M:%S")}" %><br/>
+    <%=h "Order Status : #{@order.order_status}" %><br/>
+    <% if @order.delivery? %>
+    <%=h "Address : #{@order.address_line1}" %><br/>
+    <%=h "Location : #{@order.address_line2}" %><br/>
+    <% end %>
+    <br/>
+
+<table width="70%" cellpadding="10" cellspacing="5">
+   <% order_total = 0 %>
+<% for li in @order.line_items %>
+  <tr class="tr-<%= cycle('odd', 'even') %>">
+    <td><%= li.quantity  %> &times;</td>
+    <td>(<%= li.product.code %>) <%= li.product.name  %></td>
+    <td><%= number_to_currency(li.total_price)  %></td>
+    <% order_total += li.total_price %>
+  </tr>
+<% end %>
+    <tr>
+    <td></td>
+    <td>Total</td>
+    <td><b><%= number_to_currency(order_total) %></b></td>
+  </tr>
+</table>
+    
+  </body>
+</html>

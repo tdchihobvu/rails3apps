@@ -1,0 +1,8 @@
+<% published_comments.each do |c| %>
+  <div class="blockquote">
+    <p>
+      <%=h c.message.downcase %>
+    </p>
+    <span class="name"><%=h c.username.downcase %></span>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+<h3>You are making your payment using Ecocash</h3>
+<p>Perform the Transaction on your mobile</p>
+<ul>
+  <li>Dial <b>*151*200#</b></li>
+  <li>Enter your <b>Pin Number</b></li>
+  <li>Select Option 2 <b>Pay Merchant</b></li>
+  <li>Enter Merchant Code  <b>23789</b></li>
+  <li>Enter Amount  <b><%= number_to_currency(@cart.total_price) %></b></li>
+  <li>Confirm <b>Yes</b> to complete transaction. </li>
+</ul>
+
+<div><%= submit_tag "Place Order", :class => "submit" %></div>
+<p>Please Note: A confirmation message will be send when the order has been received confirming your order number.</p>

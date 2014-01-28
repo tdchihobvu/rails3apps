@@ -1,0 +1,29 @@
+<div id="feature_store">
+<div id="store_view"></div>
+</div>
+<div class="clear"></div>
+<div class="category_items_header">
+  <span class="category_title">Movies Category >></span><span class="category_item"><%= @cat_name %> </span><span class="category_title"><%= pluralize(@count,'Available Movie') %> </span>
+</div>
+    <% @category_items.each_with_index do |f, i| %>
+        <% '< class="students-on-one-line">' if i%5 == 0 %>
+        <div id="featured_result">
+          <div class="image"><img src="<%=h f.image_url %>" width="130px" height="130px" /></div>
+          <div class="movie_name"><%=h truncate(f.name.gsub(/<.*?>/,''),:length => 26)%></div>
+          <div class="cart_button">
+            <%= form_tag({:action => 'add_to_cart', :id => f}, :remote => true) do %>
+              <%= submit_tag "Buy Now" %>
+            <% end %>
+          </div>
+          <div class="release-year"><%= number_to_currency(f.price)%> (<%= number_to_currency(f.delivery_price) %>)</div>
+
+        </div>
+        <%= '' if i%4 == 3 %>
+      <% end %>
+
+<div class="clear"></div>
+
+
+    
+
+

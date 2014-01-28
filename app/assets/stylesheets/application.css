@@ -1,0 +1,148 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+root {
+    display: block;
+}
+
+/*Styles for the Screen*/
+
+
+body        {
+    width:1000px;
+    margin: 0 auto;
+    height:auto; 
+    color:#555;
+    background: #2A2A2A;
+}
+
+.flash_msg  {
+    background: #DCEEF7;
+    padding: 5px;
+    text-align: center;
+    color: #555
+}
+#bannerwd     {
+    top:0; margin: 0 auto; width:100%; background: #AFB7BD;
+}
+#banner {
+    width:1000px;
+    margin: 10px auto 10px auto;
+    background: #999;
+    -moz-box-shadow: 0 0 8px #888;
+    -webkit-box-shadow: 0 0 8px #888;
+    box-shadow: 0 0 8px #888;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    background:url("../images/banner.png") center top repeat;
+    height:80px;
+}
+
+#banner #menu_categories {
+    float: right;
+    margin: 60px 0px 0 10px;
+}
+
+#banner #menu_categories a {
+    color: #fff;
+    background: #3E3E3E;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-right: 1px #B5BCBF solid;
+    font-size: 11px
+}
+
+#banner #menu_categories a:hover {
+    text-decoration: none;
+    background: #535353;
+    color: #ffffff;
+}
+
+#main {
+    margin:0 auto;
+    padding: 0
+}
+
+#sidebar {
+    float:left;
+    width: 240px;
+    padding: 0px;
+    background: #f2f2f2;
+    box-shadow: 0 0 8px #888;
+    border-radius: 5px;
+    -moz-box-shadow: 0 0 8px #888;
+    -webkit-box-shadow: 0 0 8px #888;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+}
+
+#sidebar .links{
+   background: #ccc;
+   padding: 5px 20px;
+   border-bottom: 1px #F2F2F2 solid;
+}
+
+#sidebar .links a {
+    text-decoration: none
+}
+
+#sidebar .links a:hover {
+    text-decoration: none;
+    background: none;
+    color: #555;
+}
+
+.empty_cart {
+    background: #333;
+    padding: 5px;
+    color: #fff;
+    text-align: center
+}
+
+.customer_cart {
+    padding: 5px;
+}
+
+#content    {
+    float:right;
+    width: 750px;
+    padding: 0px;
+    background: #fff;
+    box-shadow: 0 0 8px #888;
+    -moz-box-shadow: 0 0 8px #888;
+    -webkit-box-shadow: 0 0 8px #888;
+}
+
+#content .header {
+    background: #F7F7F7;
+    padding: 10px;
+}
+
+#footer {
+    text-align: center;
+    color: #333;
+    font-size: 9px;
+    padding: 3px;
+}
+#footer a{
+    text-decoration: none;
+    color:#333;
+}
+#footer a:hover{
+    text-decoration: underline;
+    background: none;
+}

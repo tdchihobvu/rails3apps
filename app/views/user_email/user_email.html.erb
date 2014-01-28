@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <%= "This email has been sent from Showtime website, see your access code below:" %><br/><br/>
+    <table>
+      <tr>
+        <td>Username</td>
+        <td>: your phone number</td>
+      </tr>
+      <tr>
+        <td>Access Code</td>
+        <td>: <%= @user.random_pass %></td>
+      </tr>
+    </table>
+    Click on the link below to activate your account:
+    <%= "localhost:3000/store/activate_account?id=#{@user.phone_number}" %>
+
+  </body>
+</html>

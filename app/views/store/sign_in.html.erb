@@ -1,0 +1,10 @@
+<div class="category_items_header">
+  <span class="category_title">Sign in Form</span>
+</div>
+<div id="user_sign_in">
+<%= render 'sign_in_form' %>
+
+  <p>
+  <%= link_to 'New Customer Sign up ', :controller => 'users', :action => 'new' %> |
+  <%= link_to 'Expired tokens, renew your access token', :controller => 'store', :action => 'renew_account' %></p>
+</div>

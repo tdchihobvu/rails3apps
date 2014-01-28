@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <%= csrf_meta_tag %>
+  <title><%= yield :title %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js' %>
+  <%= javascript_include_tag 'rails' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="bannerwd">
+  <div id="banner">
+
+  </div>
+  </div>
+  <div id="main">
+     <div id="sidebar">
+
+      <% unless session[:user_id].nil? %>
+        <div class="empty_cart">Showtime Online Movies Store</div>
+        <div class="links"><%= link_to 'Home', :controller => 'manage' %></div>
+        <div class="links"><%= link_to 'Products', :controller => 'products' %></div>
+        <div class="links"><%= link_to 'Categories', :controller => 'manage' %></div>
+          <div class="links"><%= link_to 'Brands', :controller => 'manage' %></div>
+          <div class="links"><%= link_to 'Users', :controller => 'users' %></div>
+          <div class="links"><%= link_to 'Reports', :controller => 'manage', :action => 'reports' %></div>
+        <div id="reports"></div>
+        <div class="links"><%= link_to 'Logout', :controller => 'manage', :action => 'logout' %></div>
+        <% end %>
+      </div>
+      <div id="content">
+        <% unless flash[:notice].nil? %>
+          <p class="flash_msg"><%= flash[:notice] %></p>
+        <% end %>
+          <%= yield %>
+      </div>
+  </div>
+
+</body>
+</html>
