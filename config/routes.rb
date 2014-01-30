@@ -23,6 +23,7 @@ Blog::Application.routes.draw do
       post :login
       post :activate
       post :activate_renewal
+      post :create_new_user
       get :sign_in
       get :category_items
       get :products_by_alphabet
@@ -33,6 +34,7 @@ Blog::Application.routes.draw do
       get :checkout
       get :activate_account
       get :renew_account
+      get :new_user
       
     end
   end
@@ -100,7 +102,7 @@ Blog::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-    root :to => redirect('/store')
+    root :to => "store#index"
 
   # See how all your routes lay out with "rake routes"
 
@@ -108,5 +110,5 @@ Blog::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 
-    match "/*other" => redirect('/store')
+    match "/*other" => "store#index"
 end

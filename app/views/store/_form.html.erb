@@ -1,0 +1,29 @@
+<%= form_tag( { :action => :create_new_user, }, { :method => :post }) %>
+  <% if @new_user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@new_user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @new_user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= label :name, "Your Name or Nickname" %><br />
+    <%= text_field "new_user","name" %>
+  </div>
+  <div class="field">
+    <%= label :mobile_number, "Mobile Number" %><br />
+    <%= text_field "new_user","mobile_number" %>
+  </div>
+  <div class="field">
+    <%= label :email, "Email Address" %><br />
+    <%= text_field "new_user","email" %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag 'Sign up' %>
+  </div>

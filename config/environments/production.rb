@@ -8,22 +8,8 @@ Blog::Application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
-  # Don't care if the mailer can't send
-  ActionMailer::Base.raise_delivery_errors = true
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.smtp_settings = {
-    :enable_starttls_auto => true,
-    :address              => "smtp.gmail.com",
-    :port                 => 587,
-  #  :domain               => 'baci.lindsaar.net',
-    :authentication       => 'plain',
-    :user_name            => 'tdchihobvu@gmail.com',
-    :password             => 'ch1h0bvuc0pp553'
-  }
-
-
   # Disable Rails's static asset server (Apache or nginx will already do this)
-  config.serve_static_assets = false
+  config.serve_static_assets = true
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
@@ -33,6 +19,7 @@ Blog::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
+
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
@@ -60,13 +47,25 @@ Blog::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  # config.assets.precompile += %w( search.js )
+   config.assets.precompile += %w( application.js, application.css, js-image-slider.css, online_store.css, js-image-slider.js, rails.js )
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
+    # Don't care if the mailer can't send
+    ActionMailer::Base.raise_delivery_errors = false
+    ActionMailer::Base.delivery_method = :smtp
+    ActionMailer::Base.smtp_settings = {
+      :enable_starttls_auto => true,
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+    #  :domain               => 'baci.lindsaar.net',
+      :authentication       => 'plain',
+      :user_name            => 'tdchihobvu@gmail.com',
+      :password             => 'ch1h0bvuc0pp553'
+    }
 
   # Enable threaded mode
-  # config.threadsafe!
+    config.threadsafe!
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)

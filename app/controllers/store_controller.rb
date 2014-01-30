@@ -9,12 +9,6 @@ class StoreController < ApplicationController
   end
 
   def login
-    puts("tapinda mu login")
-#    expiry = Date.new(2014, 03, 17)
-#    today = DateTime.now
-#    diff = expiry - today
-#    @days_left = diff
-#    if diff > 0
        if request.post?
          user = User.authenticate(params[:random_pass], params[:mobile_number])
          unless user.nil?
@@ -39,10 +33,6 @@ class StoreController < ApplicationController
            redirect_to(:controller => 'store', :action => 'sign_in' )
          end
        end
-#    else
-#      flash[:notice] = "Your access token has expired you need to sign up for a new acess token."
-#      redirect_to(:controller => 'store', :action => 'sign_in' )
-#    end
   end
 
   def search_ajax
@@ -274,7 +264,31 @@ class StoreController < ApplicationController
     rescue SocketError
       logger.error("Email Failure: Error occured whilst trying to send an email for access code #{user.name}.")
       redirect_to_index('Your new access code has been sent to your email.')
+  end
 
+  def new_user
+    @published_comments = Comment.published_comments
+    @new_user = User.new
+    @num1 = @new_user.generate_first_number
+    @num2 = @new_user.generate_second_number
+
+  end
+
+  def create_new_user
+    @published_comments = Comment.published_comments
+    @new_user = User.new(params[:new_user])
+    @new_user.random_pass = User.generate_activation_code
+
+      if @new_user.save
+        user = @new_user.id
+        UserEmail.user_email(user).deliver
+        redirect_to_index('An access token and activation link has been sent to your email. Activate your account before you login.')
+      else
+         render :action => 'new_user'
+      end
+    rescue SocketError
+      logger.error("Email Failure: Error occured whilst trying to send an email for access code #{@user.name}.")
+      redirect_to_index('Error in connection. An error occured whilst trying to send you an email. ')
   end
 
   private
