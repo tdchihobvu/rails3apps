@@ -20,9 +20,10 @@
   </div>
   <div id="main">
      <div id="sidebar">
-
       <% unless session[:user_id].nil? %>
-        <div class="empty_cart">Showtime Online Movies Store</div>
+       <% current_user = User.find(session[:user_id]) %>
+       <% if  current_user.manager? %>
+        <div class="empty_cart">Showtime Online Movies Store </div>
         <div class="links"><%= link_to 'Home', :controller => 'manage' %></div>
         <div class="links"><%= link_to 'Products', :controller => 'products' %></div>
         <div class="links"><%= link_to 'Categories', :controller => 'manage' %></div>
@@ -31,6 +32,7 @@
           <div class="links"><%= link_to 'Reports', :controller => 'manage', :action => 'reports' %></div>
         <div id="reports"></div>
         <div class="links"><%= link_to 'Logout', :controller => 'manage', :action => 'logout' %></div>
+        <% end %>
         <% end %>
       </div>
       <div id="content">

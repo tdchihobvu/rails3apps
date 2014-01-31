@@ -15,7 +15,6 @@ class StoreController < ApplicationController
          # check if the user's authenticity token is still valid
          unless user.updated_at < "#{5.days.ago.to_s(:db)}"
             if user
-            reset_session
             session[:user_id] = user.id
             user.update_attribute(:updated_at, Time.now)
             redirect_to(:controller => 'store', :action => 'checkout' )
